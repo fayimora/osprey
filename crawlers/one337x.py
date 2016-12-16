@@ -1,5 +1,5 @@
 import requests
-from common import fetch_html
+from .common import fetch_html
 from bs4 import BeautifulSoup
 from torrent import Torrent
 
