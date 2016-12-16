@@ -1,7 +1,6 @@
 class Torrent(object):
     """The domain representation of a Torrent"""
     def __init__(self, name, seeds, leeches, date, size, url, magnet):
-        super(Torrent, self).__init__()
         self.name = name
         self.seeds = seeds
         self.leeches = leeches
