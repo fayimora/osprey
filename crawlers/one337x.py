@@ -31,7 +31,9 @@ class One337x(object):
             return magnet_link
 
         def parse_td(row):
-            name = row.find('td', class_='coll-1').find('b', class_='highlight').text
+            name_tag = row.find('td', class_='coll-1')
+            name_contents = name_tag.contents
+            name = name_contents[0].text + name_contents[1].text
             page_url = row.find('td', class_='coll-1').findAll('a')[1].attrs['href']
             page_url = self.domain+page_url
             seeds = row.find('td', class_='coll-2 seeds').text
