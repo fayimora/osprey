@@ -39,7 +39,7 @@ class One337x(object):
             seeds = row.find('td', class_='coll-2 seeds').text
             leeches = row.find('td', class_='coll-3 leeches').text
             date = row.find('td', class_='coll-date').text
-            size = row.find('td', class_='coll-4').contents[0]
+            size = str(row.find('td', class_='coll-4').contents[0])
             magnet_link = extract_magnet_link(page_url)
             return Torrent(
                 name=name,
