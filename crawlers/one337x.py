@@ -35,6 +35,7 @@ class One337x(object):
             name_contents = name_tag.contents
             name = name_contents[0].text + name_contents[1].text
             page_url = row.find('td', class_='coll-1').findAll('a')[1].attrs['href']
+            id_ = page_url.split('/')[2]
             page_url = self.domain+page_url
             seeds = row.find('td', class_='coll-2 seeds').text
             leeches = row.find('td', class_='coll-3 leeches').text
@@ -42,6 +43,7 @@ class One337x(object):
             size = str(row.find('td', class_='coll-4').contents[0])
             magnet_link = extract_magnet_link(page_url)
             return Torrent(
+                id=id_,
                 name=name,
                 seeds=seeds,
                 leeches=leeches,
