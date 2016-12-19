@@ -1,13 +1,13 @@
 from crawlers.one337x import One337x
-from flask import Flask, request, Response
+from flask import Flask, request, Response, render_template
 from jsonpickle import encode
-app = Flask(__name__)
+app = Flask(__name__, template_folder='static', static_folder='static')
 app.secret_key = '\xb0\xf6\x86K\x0c d\x15\xfc\xdd\x96\xf5\t\xa5\xba\xfb6\x1am@\xb2r\x82\xc1'
 
 
 @app.route('/')
 def index():
-    return app.send_static_file('index.html')
+    return render_template('index.html')
 
 
 @app.route('/search/<search_term>', methods=['GET'])
