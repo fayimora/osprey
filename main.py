@@ -1,8 +1,11 @@
 from crawlers.one337x import One337x
 from flask import Flask, request, Response, render_template
+from flask_cors import CORS, cross_origin
 from jsonpickle import encode
+
 app = Flask(__name__, template_folder='static', static_folder='static')
 app.secret_key = '\xb0\xf6\x86K\x0c d\x15\xfc\xdd\x96\xf5\t\xa5\xba\xfb6\x1am@\xb2r\x82\xc1'
+CORS(app)
 
 
 @app.route('/')
@@ -19,7 +22,8 @@ def search(search_term):
 
 
 if __name__ == '__main__':
-    crawler = One337x()
-    torrents = list(crawler.fetch_torrents('designated'))
-    json_string = encode(torrents[:2], unpicklable=False)
-    print(json_string)
+    app.run(port=8090)
+#     crawler = One337x()
+#     torrents = list(crawler.fetch_torrents('designated'))
+#     json_string = encode(torrents[:2], unpicklable=False)
+#     print(json_string)
