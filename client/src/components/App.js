@@ -44,11 +44,21 @@ class App extends React.Component {
 
         <h2>My Data</h2>
         <div className="container">
-          <ul>
-            {torrents.map(torrent =>
-              <li key={torrent.id}>{torrent.name}</li>
-            )}
-          </ul>
+          {/* {torrents.map(t => <h2 key={t.id}>{t.name}</h2>)} */}
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <td>Name</td>
+              </tr>
+            </thead>
+            <tbody>
+              {torrents.map(torrent =>
+                <tr key={torrent.id}>
+                  <td><a target='_blank' href={torrent.url}>{torrent.name}</a></td>
+                </tr>
+              )}
+            </tbody>
+          </table>
         </div>
 
         <footer className="footer">
