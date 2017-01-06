@@ -14,6 +14,13 @@ class App extends React.Component {
     this.search('designated');
   }
 
+  handleEnter = (e) => {
+    if(e.key==='Enter'){
+      const searchTerm = e.target.value;
+      this.search(searchTerm);
+    }
+  }
+
   search = (searchTerm) => {
     const url = `${config.API_URL}/search/${searchTerm}`;
     axios.get(url)
@@ -42,9 +49,16 @@ class App extends React.Component {
           <h1>Welcome to Osprey!!!</h1>
         </div>
 
+        <input
+          type="text"
+          className="form-control"
+          id="searchField"
+          placeholder="The Flash s02e03"
+          onKeyPress={this.handleEnter}
+        />
+
         <h2>My Data</h2>
         <div className="container">
-          {/* {torrents.map(t => <h2 key={t.id}>{t.name}</h2>)} */}
           <table className="table table-striped">
             <thead>
               <tr>
@@ -54,7 +68,7 @@ class App extends React.Component {
             <tbody>
               {torrents.map(torrent =>
                 <tr key={torrent.id}>
-                  <td><a target='_blank' href={torrent.url}>{torrent.name}</a></td>
+                  <td><a target="_blank" href={torrent.url}>{torrent.name}</a></td>
                 </tr>
               )}
             </tbody>
