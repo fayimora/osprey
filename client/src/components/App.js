@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import config from '../../config/environment';
 
 class App extends React.Component {
   constructor(props){
@@ -14,7 +15,8 @@ class App extends React.Component {
   }
 
   search = (searchTerm) => {
-    axios.get(`http://localhost:8090/search/${searchTerm}`)
+    const url = `${config.API_URL}/search/${searchTerm}`;
+    axios.get(url)
       .then(res => {
         this.setState({
           torrents: res.data
