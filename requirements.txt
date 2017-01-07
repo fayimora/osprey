@@ -1,6 +1,16 @@
 beautifulsoup4==4.5.1
-Flask==0.11.1
+blinker==1.4
+certifi==2016.9.26
+click==6.6
+Flask==0.12
 Flask-Cors==3.0.2
 gunicorn==19.6.0
+itsdangerous==0.24
+Jinja2==2.8.1
 jsonpickle==0.9.3
+MarkupSafe==0.23
+opbeat==3.5.2
 requests==2.12.3
+six==1.10.0
+urllib3==1.19.1
+Werkzeug==0.11.15
